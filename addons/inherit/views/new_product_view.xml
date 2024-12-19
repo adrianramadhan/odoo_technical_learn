@@ -1,0 +1,41 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="view_new_product_tree">
+      <field name="name">new.product.tree</field>
+      <field name="model">new.product</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="warranty_period"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_new_product_form">
+      <field name="name">new.product.form</field>
+      <field name="model">new.product</field>
+      <field name="arch" type="xml">
+        <form string="Produk Baru Inherit">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="warranty_period"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="new_product_action">
+      <field name="name">Produk Baru</field>
+      <field name="res_model">new.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="New Products" id="new_product_menu" parent="sale.product_menu_catalog"
+              action="new_product_action"/>
+
+  </data>
+</odoo>

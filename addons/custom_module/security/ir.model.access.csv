@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_module_product,access.custom_module.product,model_custom_module_product,,1,1,1,1
+access_custom_module_maintenance_log,access.custom_module.maintenance.log,model_custom_module_maintenance_log,,1,1,1,1
+access_library_book,access.library.book,model_library_book,,1,1,1,1
+access_library_loan,access.library.loan,model_library_loan,,1,1,1,1

@@ -1,0 +1,83 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_custom_module_product_tree" model="ir.ui.view">
+        <field name="name">custom_module.product.tree</field>
+        <field name="model">custom_module.product</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Module Products">
+                <field name="name" />
+                <field name="sku" />
+                <field name="price" />
+                <field name="quantity" />
+                <field name="is_available" />
+                <field name="condition" />
+                <field name="purchase_date" />
+                <field name="supplier_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_custom_module_product_form" model="ir.ui.view">
+        <field name="name">custom_module.product.form</field>
+        <field name="model">custom_module.product</field>
+        <field name="arch" type="xml">
+            <form string="Custom Module Product">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="sku" />
+                        <field name="price" />
+                        <field name="currency_id" />
+                        <field name="quantity" />
+                        <field name="is_available" />
+                        <field name="condition" />
+                        <field name="purchase_date" />
+                        <field name="supplier_id" />
+                        <field name="category_ids" widget="many2many_tags" />
+                        <field name="product_image" />
+                        <field name="total_value" readonly="1" />
+                    </group>
+                    <notebook>
+                        <page string="Deskripsi">
+                            <field name="description" />
+                        </page>
+                        <page string="Catatan">
+                            <field name="notes" />
+                        </page>
+                        <page string="Log Pemeliharaan">
+                            <field name="maintenance_log_ids">
+                                <tree>
+                                    <field name="maintenance_date" />
+                                    <field name="maintenance_by" />
+                                    <field name="notes" />
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="maintenance_date" />
+                                        <field name="maintenance_by" />
+                                        <field name="notes" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="custom_module_product_action" model="ir.actions.act_window">
+        <field name="name">Custom Module Products</field>
+        <field name="res_model">custom_module.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_custom_module_product_tree" />
+    </record>
+
+    <!-- Menu dan Action -->
+    <menuitem id="custom_module_management_menu" name="Custom Module Management" sequence="1" />
+    <menuitem id="custom_module_product_menu" name="Products" parent="custom_module_management_menu"
+        action="custom_module_product_action" />
+
+</odoo>
