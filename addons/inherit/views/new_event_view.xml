@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="view_new_event_tree">
+      <field name="name">new.event.tree</field>
+      <field name="model">new.event</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="premium_ticket_price"/>
+          <field name="vip_perks"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_new_event_form">
+      <field name="name">new.event.form</field>
+      <field name="model">new.event</field>
+      <field name="arch" type="xml">
+        <form string="Ecent Baru Inherit">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="premium_ticket_price"/>
+              <field name="vip_perks"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="new_event_action">
+      <field name="name">Event Premium Baru</field>
+      <field name="res_model">new.event</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Get Premium Events" id="new_event_menu" parent="event.event_main_menu"
+              action="new_event_action" sequence="31"/>
+
+  </data>
+</odoo>

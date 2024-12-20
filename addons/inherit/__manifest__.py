@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/product_template_inherit_view.xml',
         'views/new_product_view.xml',
         'views/event_event_view.xml',
+        'views/new_event_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
